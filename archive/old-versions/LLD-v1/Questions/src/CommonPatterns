@@ -1,0 +1,52 @@
+1) Vending Machine: For vending machine related problems following the state design pattern is key. Ideally onlt three states
+are enough. IdleState, TransactionState, DispensingState
+2) Inventory Management: separately making a service is the key here. Useful in ecommerce/ Vending Machine related problems
+3) Strategies: Use factory + strategy pattern for this.
+4) Payment Gateway:
+5) Observer Pattern: whenever you are required to create some sort of notification related logic use Observer design
+pattern here.
+6) For a messaging type of platform you can use something similar to stack overflow. commentable, likable. etc.
+7) Inventory Management: There are three scenarios to make an inventory management service. The core operation of any
+inventory management service should cover is updateStock, ReStock, isAvailable.
+    a. Keeping it simple. Single Map<Product, Integer> representing the available products and their quantity.
+    b. Keeping it more ideal with two maps. Map<String, Product> for registered products and Map<String, Integer>
+    for product and their count. here product Id acts as the key.
+    c. Taking this one step further we can add List<Observers> i.e notfying various admins about the inventory
+    getting out of stock and adding the restock.
+
+8) For the case of vending machine at a time only one person is having access to it so many scenarios would be easy.
+but for the case of ecommerce platforms we will be having shared access to the inventory.
+hence when we two people are adding products to cart. a situation can arise that during the order processing state
+we find out that the given product is out of stock. hence ideally while adding product to the cart.
+we should decrease the invetory count for the given product. now if the given product stays in cart for more than 10
+minutes. we clear the cart items back to inventory.
+
+
+Payment GateAway: Always remember that payment is made against a particular reservation. So reservation ideally should
+include a payment status.
+Depriciated Strategy: We should follow strategy + factory designPattern for payment processing. Where while making a payment
+we pass the strategy as choosing credit card, UPI etc etc. We can work more upon this.
+Latest Strategy: See we dont need strategy + factory pattern to pick strategy. We can keep a default
+strategy and on the go we can using setter set different strategies no need to complicate the
+code using factory design pattern.
+
+Transaction: When a transaction is associated with an account it could be either a withdrawal transaction or deposit
+transaction. Based on that we could define withdraw transaction, and vice versa.
+
+Search Functionality: could follow strategy Design pattern in this.
+
+Id Generation: Using Atomic integer is great.
+
+Custom Exceptions: While making custom exception is a good thing. but in a time bound environment we should simply throw
+runtime exception from the child method and then use try catch in the main singleton class where we are calling that method.
+for that we can simply add throws exception. this will help us rectify the area where that exception handling needs to be done.
+
+Reminder/ ThreadPool execution: refer task management code. very well written. everything.
+refer https://www.geeksforgeeks.org/scheduledexecutorservice-interface-in-java/
+when we are calling the reminder service we can do this task by using async call which can further be made using the
+completableFuture.runAsync call.
+refer: https://medium.com/javarevisited/java-completablefuture-c47ca8c885af
+https://pwrteams.com/content-hub/blog/async-programming-and-completablefuture-in-java#:~:text=4.-,join(),task%20represented%20by%20the%20CompletableFuture.
+
+
+User Authentication: Keep a map of (email, Password). Upon registration add an entry. for authentication simply do a lookup and compare passwrd.

@@ -1,0 +1,35 @@
+# Requirement
+The task management system should allow users to create, update, and delete tasks.
+Each task should have a title, description, due date, priority, and status (e.g., pending, in progress, completed).
+Users should be able to assign tasks to other users and set reminders for tasks.
+The system should support searching and filtering tasks based on various criteria (e.g., priority, due date, assigned user).
+Users should be able to mark tasks as completed and view their task history.
+The system should handle concurrent access to tasks and ensure data consistency.
+The system should be extensible to accommodate future enhancements and new features.
+
+
+Entities:
+1) Task: id, title, desc, due date, priority, status, assignedBy
+2) User: id, name
+3) TaskManager: Map<User, List<tasks>> task History - only completed tasks , List<Tasks> tasks - all tasks
+4) ReminderService:
+
+Enums: TaskPriority, TaskStatus
+Core FUnctionalities:
+1) CRUD Operations for - task
+2) assign task
+3) set reminder
+4) Search Task: priority, due date, assigned user
+5) User -> Mark Task as completed, view task history of completed tasks
+
+Questions to ask:
+1) Once a task is assigned to a given user can it be changed to someone else.?
+: Yes
+2) Regarding the reminders what all functionality are we supposed to give. Single reminder. Reoccurring reminder.
+automatic reminder post deadline.
+: For the case of simplicity We are keep set reminder toggle where in post the deadline if a given task is not completed
+// a reminder will be sent to it. Ideally this should be handled by a separate service which keeps track of all
+the tasks post their deadlines and the reminder stuff.
+
+Critical Sections:
+create, Edit, delete, complete task

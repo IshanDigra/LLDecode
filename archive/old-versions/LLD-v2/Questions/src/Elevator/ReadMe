@@ -1,0 +1,38 @@
+Entities: Building, Floors, Lifts, Display,InnerButtons, ExternalButton
+Enums: direction, state
+Core Functionalities: liftController, RequestDispatcher: Singleton
+
+
+
+=> Display : floor, direction
+
+=> Lift: id, direction, currentFloor, Display, InnerButtons, state,
+    showDisplay(), pressButton(), Move(dir, destFloor)
+
+
+=> InnerButton: LiftController
+Inner button will take care of dispatching with in lift request to the lift controller;
+What all scenarios can we come acrocss.
+- lift moving up
+if(requested floor < current floor) add to maxPriority queue
+else add to minPriorityQueue
+- lift moving down
+if(requested floor > current floor) add to minPriority queue
+else add to maxPriorityQueue
+
+- lift idle
+if(requested floor < current floor) add to maxPriority queue
+else add to minPriorityQueue
+
+
+=> ExternalButton will have instance of requestDispatcher the dispatcher will direct coming from floors to lift
+based on certain strategy.
+
+=> Floor : id, floorNumber, externalButtons
+=> Building : list<Floors> can create a singleton design pattern for this.
+add floor and stuff;
+
+Note:
+1) request Dispatcher could have various strategies to select a lift for this particular request.
+2) Like wise multiple request could come to a particular lift controller. how we manage to deal with those is crucial.
+

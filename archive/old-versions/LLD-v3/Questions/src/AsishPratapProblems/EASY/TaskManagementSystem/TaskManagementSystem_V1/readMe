@@ -1,0 +1,24 @@
+# Requirement
+The task management system should allow users to create, update, and delete tasks.
+Each task should have a title, description, due date, priority, and status (e.g., pending, in progress, completed).
+Users should be able to assign tasks to other users and set reminders for tasks.
+The system should support searching and filtering tasks based on various criteria (e.g., priority, due date, assigned user).
+Users should be able to mark tasks as completed and view their task history.
+The system should handle concurrent access to tasks and ensure data consistency.
+The system should be extensible to accommodate future enhancements and new features.
+
+
+
+Entities: TaskManagement, User, Task,
+Enums: TaskPriority, status,
+Exceptions:
+Core Functionalities: CRUD for tasks, assignTask, search tasks based on( priority, due Date, assigned User),
+completeTask, viewHistory, set reminder for task
+
+
+
+=> Task: title, description, due date, priority, status, assginedBy
+updateStatus()
+=> User: id, name
+=> TaskManagement: Map<user, activeTaskList> activeTasks, Map<user, activeTaskList> completedTasks, List<Tasks> tasks
+createTask, updateTask{delete, complete}, assginTask, searchTask, filterTask, viewHistory,

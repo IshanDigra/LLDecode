@@ -1,0 +1,139 @@
+The approach to solve any LLD problem is
+    1) Clarify requirements.. try to keep things as simple as possible and as less as possible so that the interviewer
+    doest ask much to develop.
+    2) present A flow to verify that you are on same page. A happy flow of everything.
+    3) Now Identify Entities and everything. Once you are done with this define the classes.
+    4) Post this step you should ask the interviewer if he is okay with it and you can procceed ahead.
+    5) Implementation: Make it quick with the implementation Part the concurrency additions and basic exception handling should be done in this step only.
+    6) Once the core code is running add exception handling. The basic null checks shoul be made the moment you
+    are writing the code.
+    7) This step is time consuming at times and can thus can lead to confusion and stuff. we should define generic services for each mentioned core functionalities. Once we are done with their implementation.
+    Ideally we should start from one service and list down all the actions that arre subpposed to be done by that particular service.
+
+
+=> Start Template
+Entities:
+Enums:
+Exceptions:
+Services:
+Core Functionalities:
+Utils:
+Critical Section:
+Happy Flow:
+
+Good Coding Practices:
+1) always make the normal fields private and if they shouldn't change then make them final as well.
+2) try to use concurent datastructures & synchromized as much as possible. For this using concurrent collection is key.
+rest only use syncronized where only one thread access is to be given. Not everywhere.
+3) singletom design pattern, Strategy Design Pattern, Observer Design Pattern, Factory Design Pattern are going to be our saviours.
+4) If time persists then create separate services. else keep all the methods and codes of services in the main singleton class only.
+Inter service relation is also important otherwise you might face issues. hence only create separate independent services.
+5) Common behaviours can be implemented across different classes via interface. for the case of stack overflow. Commentable and votable
+is one such thing that we needed across mutiple classes. hence we made interface for the given behaviour.
+6) FOr the case of custom comparator we donot need to return boolean in the lambda function but rather
+integer value that defines the whole sorting behaviour.
+example: Collections.sort(l, (a,b)->{return b-a; }); for reverse order
+
+
+=> Points to note
+1) entities will serve as dummy objects.
+2) based on the core functionalities, services can be made that manages the entities and various functions related
+to core functionalities;
+3) Utils: usually we are going to have just an id generation util here. nothing more. keep methods synchronized for
+various objects that we have at our hand.
+4) Only making independent services is the key here. In chatgpt response the service can be simply merged into the
+main class that will most likely be followed by singleton design principle.
+5) Identifying the critical sections: A Critical method is where some sort of read-modify action is taking place.
+For example the task management system: create, edit, delete task are all critical points.
+6) Ideally when we are having users inventory or anything the actions and mappings should be based on the id rather than
+the entire object itself. but for simplicity we stick to entire projects as of now.
+7) For abstract classes we must use protected fields for the instance variables. Also note that if we have some configurations
+that needs to be same across all the subclasses and any change we make in the configuration needs to be in sync with others then
+in this case we can keep that field static and do a static block initialization for the given field. this discussion is in context
+with logging framework version 2.
+8) donot use system.out.err()
+9) This point is very important in terms of the concurrency handling. See if your action is doing some sort of update statement
+then in this case concurrency needs to be taken care of. Now here is the catch if the method just works on a concurrent datastructure
+then syncronized key word is not required on this method. But for the case you are updating some sort of count or amount
+and multiple update operations are taking place where add delete taking place and they are depenedent like bought a product
+that was required by the previous one then in such cases syncronized is required.
+
+
+// Syntax learning
+public class CustomExcetion extends RuntimeException {
+    public CustomExcetion(String message) {
+        super(message);
+    }
+}
+
+
+
+
+
+
+Things to learn:
+
+
+3) Go through the new things we wish to learn in lld. Like exception handling and everything. Log.error and everyhtinhg else.
+ // dont use this. producess irregular priting result. sout.errr and everyhting. this will be very helpfull in future.
+
+Date: Always take LocalDate. TimeStamp.
+1) long days = ChronoUnit.DAYS.between(startDate, endDate) + 1;
+2)  LocalDate startDate = LocalDate.now();
+    LocalDate endDate = startDate.plusDays(3);
+
+Date time formatting :
+        LocalDate l = LocalDate.now();
+        String ll = l.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        LocalDate lll = LocalDate.parse(ll,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        Timestamp s = new Timestamp(System.currentTimeMillis());
+    long seconds = (new Timestamp(System.currentTimeMillis()).getTime() - ticket.getTime().getTime())/(1000);
+
+Id Generation: Util Standard Template for id Generation
+public class Main {
+
+    private static AtomicInteger id1;
+    private static AtomicInteger id2;
+
+    static{
+        id1 = new AtomicInteger();
+        id2 = new AtomicInteger();
+    }
+
+    public static int generateId1(){
+        return id1.addAndGet(1);
+    }
+
+    public static int generateId2(){
+        return id2.addAndGet(2);
+    }
+}
+
+
+
+
+
+Taking user input using scannner:
+
+ Scanner scn = new Scanner(System.in);
+
+        // input is a string(one word)
+        // read by next() method
+        String str1 = scn.next();
+
+
+        // input is a string(complete Sentence)
+        // read by nextLine() method
+        String str2 = scn.nextLine();
+
+
+        // input is an integer
+        // read by nextInt() method
+        int x = scn.nextInt();
+
+
+        // input is a floatingValue
+        // read by nextFloat() method
+        float f = scn.nextFloat();
+
+

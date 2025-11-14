@@ -1,0 +1,16 @@
+entities: player, board, game
+enum: symbol
+Exceptions: Invalid Selection,
+Core Functionalities:
+
+
+
+=> symbol: Empty, X, O;
+
+=> player: id, name, symbol
+
+=> board: size, 2dlist symbols, movecount
+markCell(int row, int column), isDraw(), isWin(), printBoard()
+
+=> game: PlayerQueue, Board
+initializeGame(), startGame(), getInput(String message)

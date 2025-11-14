@@ -1,0 +1,62 @@
+#Requirement
+The ATM system should support basic operations such as balance inquiry, cash withdrawal, and cash deposit.
+Users should be able to authenticate themselves using a card and a PIN (Personal Identification Number).
+The system should interact with a bank's backend system to validate user accounts and perform transactions.
+The ATM should have a cash dispenser to dispense cash to users.
+The system should handle concurrent access and ensure data consistency.
+The ATM should have a user-friendly interface for users to interact with.
+
+
+
+
+Entities:
+1) ATM
+3) Balance -- not required.
+4) Transaction interface: id, amount, timestamp, account, type
+4.1) WithdrawTransaction
+4.2) DepositTransaction
+5.1) UserAccount: UserName, card, pin, Balance
+5.2) User: name, card, -- not required
+6) Card: card number, cvv
+7) Bank interface
+7.1) Bank: List<User Accounts>, Map<UserAccount, Transaction>
+8) CashDispenser:
+
+
+Enums:
+1) Cash - with varying denominations
+
+Core-Functionalities:
+1) User authentication
+2) Balance-Enquiry
+3) Cash withdrawal
+4) cash Deposit-- note although ATM's dont allow cash deposit based on my understanding.
+5) Cash Dispensing
+6) Transaction history -- bonus
+
+
+Critical Sections:
+1) From ATM Side it is going to be single threaded.
+2) Non concurrency checks are required in this case. Since our scope is confined to single ATM, if we are talking
+about multiple atms too then also A person's account has 1 card so multiple threads can't work on it.
+
+Happy Flow:
+User comes with card and Pin, authenticate using card & pin (atm routes the request to bank backend system)
+validation takes place the user can now enquire about balance, withdraw cash, make a deposit, the dispenser despenses.
+
+Brownie Points:
+1) there is a one to one mapping with atm and bank. i.e If the atm is of SBI then only SBI server can be interacted.
+2) For ATM we can use the state design pattern: with a logout action that moves to idle state again
+    A) Idle state - only validation action possible
+    B) Action State -
+        B.1) balance enquiry => again goes to action state
+        B.2) Withdraw/ deposit => Validation takes place
+    C) Dispensing state -> idle State
+3) When the atm cash dispenser is low on balance it notifies the Bank about atm running low on balance so, observer pattern
+can be introduced here.
+4) In terms of cash dispensing we can dispense in denominations of 2k, 500, 200, 100, 50, 10 and so on. So we can use
+chain of responsibility for this.
+5) In the atm state section we can take pin as input from the user. this will be
+so cool.
+5) Once validation is done only then we can make the transaction so no need to validated again.
+6) we could add a cancelTransaction action that simply rests to idle state.

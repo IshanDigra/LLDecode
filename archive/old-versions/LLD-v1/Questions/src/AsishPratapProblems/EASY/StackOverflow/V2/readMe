@@ -1,0 +1,35 @@
+#Requirements
+Users can post questions, answer questions, and comment on questions and answers.
+Users can vote on questions and answers.
+Questions should have tags associated with them.
+Users can search for questions based on keywords, tags, or user profiles.
+The system should assign reputation score to users based on their activity and the quality of their contributions.
+The system should handle concurrent access and ensure data consistency.
+
+
+Entities:
+1) User: id, name, reputation
+2) Question, id, tags: ListString, title, body, posted by, timestamp, List<Answers>, List<Comments>, Upvotes, DownVotes,
+3) Answer, id, body, question, posted by, timestamp, list<comments>, votes,
+4) Comment: id, posted by, timestamp, content votes,
+5)
+6) Main entry Point: List<User>, List<Questions>, List<Answers>,
+post question, post answer, post comment, upvote, downvote, search
+
+Enums:
+Core Functionalities:
+1) post question
+2) asnwer question
+3) make comment
+4) vote
+5) search questions based on keywords, tags, user profile
+6) assigning reputations based on activity and contributions
+7) On each equestion asked +10, each answer+10, each upvote +2, downvote -2, comment +5
+8) upvote/downvote on a given item can be done once per user.
+a user can either upvote/ downvote and that too with a single contribution. need to work on this as well.
+Critical Section:
+voting, commenting, updating reputation, adding questions , aswers m comments
+Happy Flow: some user posts a question, other user answers it, votes it comments on it/ answer
+
+Bonus:
+We could add a user registration mechanism

@@ -1,0 +1,42 @@
+Entities: ParkingSpot: {twoWheeler,fourwheeler} , vehicle, Ticket,
+Enums: vehicleType,
+Corefunctionalities: ParkingSpotManager: {twoWheelerManager, fourWheelerManager}, ParkingStrategy;{default, nearestToEntrance},
+EntranceGate, ExitGate, ParkingSpotManagerFactory,
+
+
+=> ParkingSpot
+id, vehicle, isEmpty, Price,
+addVehicle(), removeVehicle()
+
+=>vehicle
+vehicleNum, vehicleType,
+
+=>ticket
+ticketId, ParkingSpot, vehicle, intime,
+
+=> ParkingSpotManager
+List<ParkingSpots>,
+addParkingSpot, removeParkingSpot, assignParkingSpot, unassignParkingSpot, findParkingSpot
+Note: Here in find Parking space, we could implement various strategies. like the first free or the closest to entrance.
+
+
+=> EntranceGate
+ParkingSpotManager
+Note: Now here we could have a factory design pattern to return the type of parkingspot manager based on the vehicle
+type at entrance gate.
+
+finsSpace(), bookSpot(), generateTicket,
+
+->ExitGate
+ticket,
+costComputation: twowhellercostcomp, fourwheelercostcomp
+Again we could have a strategy for cost computation. hourly basis, default or minutes basis.
+again we could have a costcomputationfactory based on the vehicle.
+priceCalc()
+payment() based on the type of paymentmethod.
+freeParkingSpot()
+
+
+
+- ParkingSlot- singleton pattern
+encapsulate everything inside of this.

@@ -1,0 +1,29 @@
+Key Points that we learn as we move ahead with the problem solving and learning new design patterns.
+
+
+#Notes Compilation from the first iteration of handwritten notes.
+
+
+
+
+
+#Notes compilation from the second iteration of problem solving.
+
+=> Design Pattern
+
+=> Design Parking Lot
+1) Always keep the method inputs as the parent class. for example you want to provide a ArayList<String> in method.
+for this case while declaring the method just mention List<String> as its the parent class.
+2) For this paticular Problem factory Pattern to generate the spot manager was unnecessary. Keep the time contstraints in
+mind Always. Set 10 min for discussion and coming up with a solution and then max 30-40 minutes of coding. this means
+only keep the necessary thing. lets say the interviewer has explicity mentioned for taking charging strategies then only
+implement that rest keep same. Maintaining concurrency and other stuff is much more important than this. focus on that.
+
+
+
+
+=> Design Tic Tac Toe
+1) while solving this problem you wasted alot of time looking through the standard solution. This is not a right approach
+2) first just go through the solution once after you have devised your own without loojing at the video and the notebook solution.
+once you are satisfied. then start the timer and start coding. you track the time of you devising the solution as well.
+but not the going through notebook and video.

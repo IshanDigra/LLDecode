@@ -1,0 +1,30 @@
+#Requirement:
+The parking lot should have multiple levels, each level with a certain number of parking spots.
+The parking lot should support different types of vehicles, such as cars, motorcycles, and trucks.
+Each parking spot should be able to accommodate a specific type of vehicle.
+The system should assign a parking spot to a vehicle upon entry and release it when the vehicle exits.
+The system should track the availability of parking spots and provide real-time information to customers.
+The system should handle multiple entry and exit points and support concurrent access.
+
+Bonus: Think about if payment needs to be made against a booking/ParkingTicket.
+1) when we assign a parking spot. Parking ticket will get generated. Payment will be made against this parking ticket upon exit.
+parking spot could have hourly/daily price. user can choose to opt for pricing strategy while booking. Once he is done
+based on the statrategy choosen he is supposed to make payment.
+
+
+Entities:
+1) ParkingSpot: parkingStatus, vehicleType, spotId
+2) ParkingLevel: levelId, Map<vehicleType, List<Spots>>, getFreeSpots(vehicle)
+3) Vehicle: vehicleType, id
+4) Ticket: ticketId, vehicle, timestamp, spotId
+
+Enums: vehicleType, parkingStatus
+
+Core Functionalities;
+1) assign/ free parking spt
+2) track parking spots
+3) payment of ticket fares
+
+=> Critical Sections:
+1) park vehicle - covered;
+2) unParkVehicle - covered;

@@ -1,0 +1,6 @@
+Observer pattern is basically subscribe-subscriber desgin pattern. In this we have observable interface and observer interface.
+Observable interface has : add(), remove(), setData(), NotifyAll()
+observer has update() whose input type is observable object. This is done to prevenet constructor injection of
+observable in the oberver and insimple terms sharing the updated state of observable to the observer.
+
+when the state of observable changes it notifies all its subscribers.

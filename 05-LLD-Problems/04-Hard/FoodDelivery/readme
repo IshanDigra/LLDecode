@@ -1,0 +1,38 @@
+=> Model: Customer, Restaurant, MenuItem, Order, DeliveryAgent, Payment
+
+- Customer
+V: id, name, email, contact brownie: orderHistory
+M: brownie: viewOrderHistory
+
+- Restaurant
+V: id, name, address, menuItem, RestaurantAvailability
+M: addMenuItem, removeMenuItem
+
+- MenuItem
+V: id, description, name, price, ItemAvailability
+M:
+
+- Order
+V: id, orderItems, orderStatus, deliveryAgent, customer, Restaurant
+M: addItem, removeItem, updateStatus, assignAgent
+
+- DeliveryAgent
+V: id, name, status, contact,
+M:
+
+=> Constant: ItemAvailability, RestaurantAvailability, AgentStatus, OrderStatus, PaymentStatus
+=> Service: RestaurantService, OrderManagement, DeliveryManagement, PaymentProcessing, NotificationProcessing
+
+- FoodDeliverySystem
+V: Customers, Restaurants, DeliveryAgents, Orders, Instance,
+M: addCustomer, addRestaurant, addAgent, viewMenu, placeOrder, updateOrderStatus, assignDeliveryAgent, Notification to customer, restaurant, deliveryagent
+=> Exception:
+
+
+
+* points to note:
+
+1) whenever you are defining model items variable just try and look for real life based examples. for order we require status,
+items, restaurant, deliveryAgent etc etc.
+2) learn about observer desgin pattern. very important for notify customer & other kind of standard implementations. Apart from that
+summarise the other fields as well that we wish to learn here. Time libraries. Executor services. Threads. etc etc. important stuff is pending.

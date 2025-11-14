@@ -1,0 +1,34 @@
+1) Vending Machine: For vending machine related problems following the state design pattern is key. Ideally onlt three states
+are enough. IdleState, TransactionState, DispensingState
+2) Inventory Management: separately making a service is the key here. Useful in ecommerce/ Vending Machine related problems
+3) Strategies: Use factory + strategy pattern for this.
+4) Payment Gateway:
+5) Observer Pattern: whenever you are required to create some sort of notification related logic use Observer design
+pattern here.
+6) For a messaging type of platform you can use something similar to stack overflow. commentable, likable. etc.
+7) Inventory Management: There are three scenarios to make an inventory management service. The core operation of any
+inventory management service should cover is updateStock, ReStock, isAvailable.
+    a. Keeping it simple. Single Map<Product, Integer> representing the available products and their quantity.
+    b. Keeping it more ideal with two maps. Map<String, Product> for registered products and Map<String, Integer>
+    for product and their count. here product Id acts as the key.
+    c. Taking this one step further we can add List<Observers> i.e notfying various admins about the inventory
+    getting out of stock and adding the restock.
+
+8) For the case of vending machine at a time only one person is having access to it so many scenarios would be easy.
+but for the case of ecommerce platforms we will be having shared access to the inventory.
+hence when we two people are adding products to cart. a situation can arise that during the order processing state
+we find out that the given product is out of stock. hence ideally while adding product to the cart.
+we should decrease the invetory count for the given product. now if the given product stays in cart for more than 10
+minutes. we clear the cart items back to inventory.
+
+---------------
+Add other common patterns here as well so that Its easier to simply remember those patterns when required.
+1) Payment
+2) Reservations/Booking
+3) Inventory
+4) Authentication
+5) Gaming Interface -> Board Games
+6) Notifications
+6.1) Notifying admin - observer
+6.2) Scheduling notification - threadpool executor. - do more rnd on how scheduled notifications work.
+6.3) Notifying other people - mediator design pattern

@@ -1,0 +1,30 @@
+#Requirements
+Users can post questions, answer questions, and comment on questions and answers.
+Users can vote on questions and answers.
+Questions should have tags associated with them.
+Users can search for questions based on keywords, tags, or user profiles.
+The system should assign reputation score to users based on their activity and the quality of their contributions.
+The system should handle concurrent access and ensure data consistency.
+
+
+Entities: User, Question, Answer, Comment, vote, tag, StackOverflow
+enums:
+Core Functionalities: PostQuestion, AswerQuestion, CommentQuestion, commentAnswer, searchQuestion, upvote, downvote, Reputation
+
+
+=> User: id, name, email, List<Questions>, List<Answers>, List<Comments>, reputationScore
+postQuestion, AswerQuestion, CommentQuestion, commentAnswer, updateReputation
+
+=> Question: id, content, author, creationDate, List<tags>, List<answers>, List<comments>, voteCount
+addAnswer, addComment, updateVote
+
+=> Answer: id, content, author, postingDate, List<comments>, voteCount
+addComment, updateVote
+
+=> comment: id, Commentable(Q/A), author, voteCount
+
+=> tag: id, title
+
+
+=> StackOverFlow: Map<id, User>, Map<id, Questions>, Map<id, Answers>, Map<id, Tag>
+ postQuestion, AswerQuestion, CommentQuestion, commentAnswer, search Question, upVote, downVote

@@ -1,0 +1,43 @@
+Approach would be to first list down entities, core functionalities under services, constants, exceptions.
+Once you are done with this then we can define the variables and methods for models and services.
+Start with just one service managing everything and then eventually we can break that down into smaller services.
+based on the constrains and everything else.
+
+
+
+=> Model: Customer, Restaurant, MenuItem, Order, DeliveryAgent, Payment
+
+- Customer
+V: id, name, email, contact brownie: orderHistory
+M: placeOrder, brownie: viewOrderHistory
+
+- Restaurant
+V: id, name, address, menuItem, RestaurantAvailability
+M: addMenuItem, removeMenuItem
+
+- MenuItem
+V: id, description, name, price, ItemAvailability
+M:
+
+- Order
+V: id, orderItems, orderStatus, deliveryAgent, customer, Restaurant
+M: addItem, removeItem, updateStatus, assignAgent
+
+- DeliveryAgent
+V: id, name, status, contact,
+M:
+
+=> Constant: ItemAvailability, RestaurantAvailability, AgentStatus, OrderStatus, PaymentStatus
+=> Service: RestaurantService, OrderManagement, DeliveryManagement, PaymentProcessing, NotificationProcessing
+
+- FoodDeliverySystem
+V: Customers, Restaurants, DeliveryAgents, Orders, Instance,
+M: addCustomer, addRestaurant, addAgent, viewMenu, placeOrder, updateOrderStatus, assignDeliveryAgent, Notification to customer, restaurant, deliveryagent
+=> Exception:
+
+
+
+* points to note:
+
+1) whenever you are defining model items variable just try and look for real life based examples. for order we require status,
+items, restaurant, deliveryAgent etc etc.

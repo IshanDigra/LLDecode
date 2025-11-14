@@ -1,0 +1,85 @@
+#Requirement
+User Registration and Authentication:
+Users should be able to create an account with their professional information, such as name, email, and password.
+Users should be able to log in and log out of their accounts securely.
+
+User Profiles:
+Each user should have a profile with their professional information, such as profile picture,
+headline, summary, experience, education, and skills.
+Users should be able to update their profile information.
+
+Connections:
+Users should be able to send connection requests to other users.
+Users should be able to accept or decline connection requests.
+Users should be able to view their list of connections.
+
+Messaging:
+Users should be able to send messages to their connections.
+Users should be able to view their inbox and sent messages.
+
+Job Postings:
+Employers should be able to post job listings with details such as title, description, requirements, and location.
+Users should be able to view and apply for job postings.
+
+Search Functionality:
+Users should be able to search for other users, companies, and job postings based on relevant criteria.
+Search results should be ranked based on relevance and user preferences.
+
+Notifications:
+Users should receive notifications for events such as connection requests, messages, and job postings.
+Notifications should be delivered in real-time.
+Scalability and Performance:
+
+The system should be designed to handle a large number of concurrent users and high traffic load.
+The system should be scalable and efficient in terms of resource utilization.
+
+
+Entities:
+User
+Account
+Profile
+Message
+ConnectionRequest
+Employer
+JobPosting
+
+
+Enums:
+
+Core functionalitites:
+- in this particular problem the Problem statement itself contains all the core functionalities required.
+
+critical Section:
+First we code up the entire stuff then we can identify the critical sections
+
+Happy Flow:
+
+Brownie Points:
+1) Registration and authentication: User provides email and password for login and
+- name email password for registration. we can encode the password to base 64 and decode it
+for better security reasons because its mentioned that it should be secure.
+2) for login logout functionality we could maintain a hashmap for say user logins then it
+is set true. and when user logsout it is set false. If during midway user logsout then
+if must be required to login once again. Also instead of keeping the record we could simply
+delete the entry when user logins. - so we add this check everywhere.
+3) another way to do this is via state design pattern. But that is applicable when only one user
+is interacting if multiple users are interacting in parallel then its of no use to us.
+
+4) Searching should be done based on strategy design pattern where we are given the keyword
+and searchCriteria as input and based on that crietia we make the search operation.
+It can further be delegated to another service that does this for us.
+
+5) Notification part is another interesting section of this problem. Se there is going to
+be two kinds of notification system.
+5.1) One-to-One: User a sends message/connection request to user b.
+5.2) one-to-Many: User a posts a job and k users recieves the job posting notification.
+
+now the first one here can be achieved via simple push notification mechanism.
+for the other one We can think of it as a pub-sub system where there are different topics
+that we can relate to job categories. employers pulish on these topics and all the subscribers
+get the notif. since user publishes and user subscribes this can be related to mediator
+design pattern. where mediator have various topics and list of various users subscribers to these individual
+topics. based on the listings these topic subsxribers are triggered.
+
+
+-- I want you to complete this problem bro.

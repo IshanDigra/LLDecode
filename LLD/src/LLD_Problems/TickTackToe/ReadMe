@@ -1,0 +1,23 @@
+Requirements: Tic Tac Toe will have two players, there is going to be a game board to play on. Ideally its a 3X3 board. There are going
+going to be game pieces player can choose from.
+
+Entities: Player, Piece, Board
+Enums: PieceType
+Core Functionalities: Game
+
+=> Piece : pieceX pieceO
+PieceType
+
+
+=> Player
+name, Piece
+
+
+=> Board
+size, List<Pieces>
+
+=> game
+dequeue Players, Board,
+
+
+

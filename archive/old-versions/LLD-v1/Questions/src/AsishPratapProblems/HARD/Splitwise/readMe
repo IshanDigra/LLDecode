@@ -1,0 +1,34 @@
+#Requirement
+
+The system should allow users to create accounts and manage their profile information.
+Users should be able to create groups and add other users to the groups.
+Users should be able to add expenses within a group, specifying the amount, description, and participants.
+The system should automatically split the expenses among the participants based on their share.
+Users should be able to view their individual balances with other users and settle up the balances.
+The system should support different split methods, such as equal split, percentage split, and exact amounts.
+Users should be able to view their transaction history and group expenses.
+The system should handle concurrent transactions and ensure data consistency.
+
+Entities: User, group, Expense, Split: Strategy, BalanceSheet, transaction
+Enums: splitType, expenseType:{ groupExpense, nonGroupExpense}
+CoreFunctionalities: account Creation, group Creation, Splitting,  balance settleup, view transaction history, view
+group expenses.
+
+
+=> User: id, name, email,
+=> BalanceSheet: author, map<user, Double>
+=> group: id, List<Users>, List<Expenses>
+=> Expense: id, paidBy, List<individualExpense>, totalAmount, SplitType
+
+=> transaction: id, paidBY, paidto, amount, timestamp
+=> SplitWise: Map<Users>, Map<user, list<transaction>>, List<group>
+addExpense(user, List<individualExpense>, amount, splitTpye), addGroupExpense(Group, user, List<>): we need a check only the group people should be part
+of the expense. UI will handle.
+
+=>Splitting: Strategy + factory Design pattern ?
+whenever we are creating an expense based on the splittype, we will choose a strategy and return its object and the required split.
+
+=> individual expense => user, split(=> based on the split type we will decide if it is a percentage or proper split or something else.)
+
+
+

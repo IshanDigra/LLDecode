@@ -1,0 +1,27 @@
+#Requirement
+The logging framework should support different log levels, such as DEBUG, INFO, WARNING, ERROR, and FATAL.
+It should allow logging messages with a timestamp, log level, and message content.
+The framework should support multiple output destinations, such as console, file, and database.
+It should provide a configuration mechanism to set the log level and output destination.
+The logging framework should be thread-safe to handle concurrent logging from multiple threads.
+It should be extensible to accommodate new log levels and output destinations in the future.
+
+
+Entities:
+1) LogMessage: timestamp, content, log level
+2) Configuration: handler, OutputDestination
+3) OutputDestination: console, DB, File
+5) handler(DEBUG, INFO, WARNING, ERROR, and FATAL) : logLevel, nexHandler, processLog
+
+Enums:
+1) logLevel
+
+
+=> try to implement this using the chain of responsibility design pattern.
+
+Core Functionalities: setting the configuration, various log modes.
+Critical Section:
+
+
+=> Happy flow ; User creates an instance of main handler. which is the entry point. when process log is called.
+we check if the current level loglvl with respect to the cofiguration. else we process request.

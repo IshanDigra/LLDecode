@@ -1,0 +1,30 @@
+# Compiled class files
+*.class
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build artifacts
+out/
+target/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Archive build artifacts
+archive/old-versions/*/out/
+archive/old-versions/*/target/
+archive/old-versions/*/build/
+
+# Temporary files
+*.tmp
+*.temp

@@ -1,0 +1,22 @@
+Requirements:
+
+Entities: Customer, Car, Reservation, Payment, VehicleInventory, contactDetail
+enums: carStatus
+CoreFunctionalities: CarRentalSystem: Singleton, Search: strategyDesignPattern,
+
+=>carStatus: Available, Reserved, NotAvailable
+
+=>Vehicle: model, year, liscencePlateNumber, rentalPricePerDay, status
+
+=> ContactDetail: number, email
+
+=> Customer: name, contactDetail, driverLiscense
+
+=>VehicleInventory: Map<string, Vehicle>
+CRUD operations
+
+=>paymentStrategy:
+processPayment(totalAmount)
+
+
+=>CarRentalSystem: vehicleInventory, Map<string, vehicle>,  Map<String, Reservation>,
