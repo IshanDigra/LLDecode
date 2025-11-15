@@ -219,7 +219,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MyService {
-    private static final Logger logger = LoggerFactory.getLogger(MyService.class);
+    private static final Logger logger = Logger.getLogger(TaskManager.class.getName());
 
     public void doSomething() {
         logger.info("Performing an operation.");
@@ -227,3 +227,7 @@ public class MyService {
     }
 }
 ```
+
+
+### 7. Points to Note 
+- Whenever we are solving an LLD Problem, think interms of the actual High level design port this at very basic level. from there we can deduce the Low level functioning and do the implementation. For example for the reminder service we could have reminders stored in table => Map/ List now we could have a cron job that runs every minute to get the list of reminders to be sent and then at the other end we could have a notification service as consumer that can give the functionality of sending notification via various means. 
