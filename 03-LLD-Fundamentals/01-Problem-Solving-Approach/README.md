@@ -65,6 +65,8 @@ Refactor the implementation into clean, focused, and independent services.
 
 Use this template as a starting point for any LLD problem to structure your thinking.
 
+### Problem Statement:
+
 ### Happy Flow:
 [Describe the main user journey, step-by-step.]
 
@@ -85,3 +87,6 @@ Use this template as a starting point for any LLD problem to structure your thin
 
 ### Utilities:
 [List any helper functions or utility classes required.]
+
+### Questions to Ask: 
+[List of Questions to ask]
