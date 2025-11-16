@@ -1,0 +1,43 @@
+#Requirement
+------------
+
+The traffic signal system should control the flow of traffic at an intersection with multiple roads.
+The system should support different types of signals, such as red, yellow, and green.
+The duration of each signal should be configurable and adjustable based on traffic conditions.
+The system should handle the transition between signals smoothly, ensuring safe and efficient traffic flow.
+The system should be able to detect and handle emergency situations, such as an ambulance or fire truck approaching the intersection.
+The system should be scalable and extensible to support additional features and functionality.
+
+
+Happy Flow:
+system starts: current road signal turns green yellow red then next road and so on. In between emergency situation arises
+in a given road it gets handled. and stuff goes back to normal.
+
+Entities:
+1) Road: id, name, TrafficSignal
+2) TrafficSignal: id, currentSignal
+3) SignalConfig: redDuration, greenDuration, yellowDuration
+3) trafficSignalControl: List<Roads>, emergencySituationCheck,
+Enums: signalType(RED, GREEN, YELLOW)
+
+Util:
+    - signal Id generator
+    - Road Id generator
+
+Core Functionalities:
+signal change: green -> yellow -> red. This can be done via a queue mechanism. for loop will also work.
+duration configurable: keeping it global for now.
+emergency situation: event driven simulation: make the check true : handle the situation, then make it back false.
+
+critical section:
+signal change, emergency situation
+
+
+Questions to Ask:
+- Is the duration configuration global for all lights or vary for each light
+Intuition: if keeping global then Signal Config will be part of trafficSignalControl else each traffic signal will have its
+own set of signal config.
+
+
+
+
