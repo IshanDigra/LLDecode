@@ -181,7 +181,7 @@ public class AuthenticationService {
 }
 ```
 
-## 6. Scheduled Reminder & Notification System
+## 6. Scheduled Reminder System
 
 For systems requiring time-based notifications (task management, calendar events, subscription renewals), use a scheduler with background threads and the Strategy pattern for notification delivery.
 
