@@ -1,0 +1,26 @@
+Happy Flow:
+
+Entities:
+
+Enums:
+
+Util:
+
+Core Functionalities:
+
+Services:
+
+critical section:
+
+Questions to Ask:
+
+
+
+# things to lookout for
+- logging
+- concurrency handling
+- exception handling
+- Null Validations/ Edge cases
+
+
+
