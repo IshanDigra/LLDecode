@@ -9,7 +9,7 @@ It should be extensible to accommodate new log levels and output destinations in
 
 Entities:
 1) LogMessage: timestamp, content, log level
-2) Configuration: handler, OutputDestination
+2) Configuration: LogLevel, OutputDestination
 3) OutputDestination: console, DB, File
 5) handler(DEBUG, INFO, WARNING, ERROR, and FATAL) : logLevel, nexHandler, processLog
 
@@ -17,11 +17,28 @@ Enums:
 1) logLevel
 
 
-=> try to implement this using the chain of responsibility design pattern.
+Core Functionalities: setting the configuration, various log modes. handlers
 
-Core Functionalities: setting the configuration, various log modes.
+Services:
+Main Handler - The entry point.
+
 Critical Section:
+- setting of logging configurations.
+
+Happy Flow:
+User calls the logger function -> based on the logging configuration(Log Level & output Destination) we process the request.
 
 
-=> Happy flow ; User creates an instance of main handler. which is the entry point. when process log is called.
-we check if the current level loglvl with respect to the cofiguration. else we process request.
+Questions to Ask:
+- Is this a local logging framework or global logging framework.
+-
+
+
+# things to lookout for
+- logging
+- concurrency handling
+- exception handling
+- Null Validations/ Edge cases
+
+
+

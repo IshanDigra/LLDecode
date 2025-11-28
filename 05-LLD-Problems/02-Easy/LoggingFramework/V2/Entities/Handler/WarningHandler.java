@@ -1,7 +1,8 @@
-package AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.Handler;
+package V2.Entities.Handler;
 
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.LogMessage;
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Enums.LogLevel;
+
+import V2.Entities.LogMessage;
+import V2.Enums.LogLevel;
 
 public class WarningHandler extends Handler{
     public WarningHandler() {

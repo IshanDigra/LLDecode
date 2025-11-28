@@ -1,10 +1,15 @@
-package AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.OutputDestination;
+package V2.Entities.OutputDestination;
 
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.LogMessage;
+
+import V2.Entities.LogMessage;
+
+import java.util.logging.Logger;
 
 public class Console implements OutputDestination{
+    private static final Logger logger = Logger.getLogger(Console.class.getName());
+
     @Override
     public void processLog(LogMessage message) {
-        System.out.println("Message with content: "+message+" has been processed.");
+        logger.info("Message with content: "+message+" has been processed.");
     }
 }

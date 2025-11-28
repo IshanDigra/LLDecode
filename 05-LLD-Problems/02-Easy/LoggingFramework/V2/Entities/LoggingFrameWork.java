@@ -1,9 +1,10 @@
-package AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities;
+package V2.Entities;
 
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.Handler.*;
+
+import V2.Entities.Handler.*;
 
 public class LoggingFrameWork extends Handler {
-    private static LoggingFrameWork instance;
+    private static volatile LoggingFrameWork instance;
     private LoggingFrameWork() {
         Handler h1 = new DebugHandler();
         Handler h2 = new InfoHandler();
@@ -16,9 +17,13 @@ public class LoggingFrameWork extends Handler {
         h3.setNextHandler(h4);
     }
 
-    public static synchronized LoggingFrameWork getInstance(){
+    public static LoggingFrameWork getInstance(){
         if(instance==null){
-            instance = new LoggingFrameWork();
+            synchronized (LoggingFrameWork.class){
+                if(instance==null){
+                    instance = new LoggingFrameWork();
+                }
+            }
         }
         return instance;
     }

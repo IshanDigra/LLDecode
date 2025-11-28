@@ -1,6 +1,7 @@
-package AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities;
+package V2.Entities;
 
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Enums.LogLevel;
+
+import V2.Enums.LogLevel;
 
 import java.sql.Timestamp;
 

@@ -1,10 +1,9 @@
-package AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities;
+package V2.Entities;
 
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.Handler.DebugHandler;
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.Handler.Handler;
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.OutputDestination.Console;
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Entities.OutputDestination.OutputDestination;
-import AsishPratapProblems.EASY.LoggingFrameWork.V2.Enums.LogLevel;
+
+import V2.Entities.OutputDestination.Console;
+import V2.Entities.OutputDestination.OutputDestination;
+import V2.Enums.LogLevel;
 
 public class Configuration {
     private LogLevel level;
