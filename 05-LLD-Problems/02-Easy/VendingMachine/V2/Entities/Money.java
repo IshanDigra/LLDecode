@@ -1,6 +1,7 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities;
+package V2.Entities;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Enums.MoneyType;
+
+import V2.Enums.MoneyType;
 
 public class Money {
     private final MoneyType type;

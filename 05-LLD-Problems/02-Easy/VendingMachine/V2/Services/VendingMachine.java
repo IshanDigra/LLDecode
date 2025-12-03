@@ -1,17 +1,24 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities;
+package V2.Services;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.MachineStates.DispensingState;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.MachineStates.IdleState;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.MachineStates.TransactionState;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.MachineStates.VendingMachineState;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Notification.Observer;
+
+import V2.Entities.Money;
+import V2.Entities.Notification.Observer;
+import V2.Entities.Product;
+import V2.Services.MachineStates.DispensingState;
+import V2.Services.MachineStates.IdleState;
+import V2.Services.MachineStates.TransactionState;
+import V2.Services.MachineStates.VendingMachineState;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+
+/*
+* This object is like the  context for state design pattern
+* */
 public class VendingMachine implements VendingMachineState {
-    private static VendingMachine instance;
-    private InventoryService inventory;
+    private static volatile VendingMachine instance;
+    private final InventoryService inventory;
     private List<Product> selectedProducts;
     private double addedAmount;
     private VendingMachineState currentState;
@@ -20,7 +27,9 @@ public class VendingMachine implements VendingMachineState {
     private DispensingState dispensingState;
 
     private VendingMachine() {
+        // this can be done via constructor injection
         inventory = new InventoryService();
+
         selectedProducts = new CopyOnWriteArrayList<>();
         addedAmount = 0 ;
         idleState = new IdleState(this);
@@ -29,9 +38,13 @@ public class VendingMachine implements VendingMachineState {
         currentState = idleState;
     }
 
-    public static synchronized VendingMachine getInstance(){
+    public static VendingMachine getInstance(){
         if(instance == null){
-            instance = new VendingMachine();
+            synchronized (VendingMachine.class){
+                if(instance == null){
+                    instance = new VendingMachine();
+                }
+            }
         }
         return instance;
     }
@@ -52,7 +65,7 @@ public class VendingMachine implements VendingMachineState {
     }
 
     @Override
-    public void addMoney(Money money) {
+    public synchronized void addMoney(Money money) {
         currentState.addMoney(money);
     }
 
@@ -62,7 +75,7 @@ public class VendingMachine implements VendingMachineState {
     }
 
     @Override
-    public void dispenseProducts() {
+    public synchronized void dispenseProducts() {
         currentState.dispenseProducts();
     }
 
@@ -70,16 +83,8 @@ public class VendingMachine implements VendingMachineState {
         inventory.reStock(product, quant);
     }
 
-    public static void setInstance(VendingMachine instance) {
-        VendingMachine.instance = instance;
-    }
-
     public InventoryService getInventory() {
         return inventory;
-    }
-
-    public void setInventory(InventoryService inventory) {
-        this.inventory = inventory;
     }
 
     public List<Product> getSelectedProducts() {

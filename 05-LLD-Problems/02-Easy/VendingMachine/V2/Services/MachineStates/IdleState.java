@@ -1,11 +1,15 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities.MachineStates;
+package V2.Services.MachineStates;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Money;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Product;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.VendingMachine;
+
+import V2.Entities.Money;
+import V2.Entities.Product;
+import V2.Services.VendingMachine;
+
+import java.util.logging.Logger;
 
 public class IdleState implements VendingMachineState{
-    private VendingMachine machine;
+    private final VendingMachine machine;
+    private static final Logger logger = Logger.getLogger(IdleState.class.getName());
 
     public IdleState(VendingMachine machine) {
         this.machine = machine;
@@ -14,47 +18,47 @@ public class IdleState implements VendingMachineState{
     @Override
     public synchronized void selectProduct(Product product) {
         if(machine.contains(product)){
-            System.out.println(product.getName()+" has already been added to cart");
+            logger.info(product.getName()+" has already been added to cart");
             return;
         }
         if(!machine.isAvailable(product,1)){
-            System.out.println(product.getName()+ "is currently out of stock");
+            logger.info(product.getName()+ "is currently out of stock");
             return;
         }
         machine.addProduct(product);
-        System.out.println(product.getName()+ " has been added to cart");
+        logger.info(product.getName()+ " has been added to cart");
     }
 
     @Override
     public synchronized void deselectProduct(Product product) {
         if(!machine.contains(product)){
-            System.out.println(product.getName()+" is not present in cart");
+            logger.info(product.getName()+" is not present in cart");
             return;
         }
 
         machine.removeProduct(product);
         machine.reStock(product, 1);
-        System.out.println(product.getName()+ " has been removed from cart");
+        logger.info(product.getName()+ " has been removed from cart");
     }
 
     @Override
     public void gotoPayment() {
-        System.out.println("******Moving to the Payment Interface******");
+        logger.info("******Moving to the Payment Interface******");
         machine.setCurrentState(machine.getTransactionState());
     }
 
     @Override
     public void addMoney(Money money) {
-        System.err.println("Invalid Action");
+        logger.warning("Invalid Action");
     }
 
     @Override
     public void makePayment() {
-        System.err.println("Invalid Action");
+        logger.warning("Invalid Action");
     }
 
     @Override
     public void dispenseProducts() {
-        System.err.println("Invalid Action");
+        logger.warning("Invalid Action");
     }
 }

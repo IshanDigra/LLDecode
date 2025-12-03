@@ -1,7 +1,8 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities.MachineStates;
+package V2.Services.MachineStates;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Money;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Product;
+
+import V2.Entities.Money;
+import V2.Entities.Product;
 
 public interface VendingMachineState {
     void selectProduct(Product product);

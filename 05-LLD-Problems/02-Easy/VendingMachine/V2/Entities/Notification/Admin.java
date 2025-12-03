@@ -1,9 +1,13 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities.Notification;
+package V2.Entities.Notification;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Product;
+
+import V2.Entities.Product;
+
+import java.util.logging.Logger;
 
 public class Admin implements Observer{
     private final String name;
+    private static final Logger logger = Logger.getLogger(Admin.class.getName());
 
     public Admin(String name) {
         this.name = name;
@@ -15,6 +19,6 @@ public class Admin implements Observer{
 
     @Override
     public void update(Product product) {
-        System.out.println(name + " has recieved the low inventory request for "+ product.getName());
+        logger.info(name + " has recieved the low inventory request for "+ product.getName());
     }
 }

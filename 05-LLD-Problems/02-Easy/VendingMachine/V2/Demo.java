@@ -1,23 +1,26 @@
-package AsishPratapProblems.EASY.VendingMachine.V2;
+package V2;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Money;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Notification.Admin;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Notification.Observer;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Product;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.VendingMachine;
-import AsishPratapProblems.EASY.VendingMachine.V2.Enums.MoneyType;
-import AsishPratapProblems.EASY.VendingMachine.V2.Enums.ProductType;
+
+import V2.Entities.Money;
+import V2.Entities.Notification.Admin;
+import V2.Entities.Notification.Observer;
+import V2.Entities.Product;
+import V2.Enums.MoneyType;
+import V2.Enums.ProductType;
+import V2.Services.VendingMachine;
 
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class Demo {
     public static void main(String[] args) {
         VendingMachine machine = VendingMachine.getInstance();
+        Logger logger = Logger.getLogger("Main");
         Observer ishan = new Admin("ishan");
         machine.add(ishan);
-        Product p1 = new Product("1", "Kurkure", ProductType.CHIPS, 20.0);
-        Product p2 = new Product("2", "ParleG", ProductType.COOKIE, 10.0);
-        Product p3 = new Product("3", "Soda", ProductType.DRINK, 20.0);
+        Product p1 = new Product("Kurkure", ProductType.CHIPS, 20.0);
+        Product p2 = new Product( "ParleG", ProductType.COOKIE, 10.0);
+        Product p3 = new Product( "Soda", ProductType.DRINK, 20.0);
         machine.reStock(p1,3);
         machine.reStock(p2,4);
         machine.reStock(p3,1);
@@ -41,7 +44,7 @@ public class Demo {
         machine.makePayment();
         machine.dispenseProducts();
         for (Map.Entry<Product, Integer> e : machine.getInventory().getProducts().entrySet()){
-            System.out.println(e.getKey()+" : "+e.getValue());
+            logger.info(e.getKey()+" : "+e.getValue());
         }
     }
 }

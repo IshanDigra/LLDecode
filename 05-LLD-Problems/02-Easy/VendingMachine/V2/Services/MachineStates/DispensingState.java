@@ -1,13 +1,16 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities.MachineStates;
+package V2.Services.MachineStates;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Money;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Product;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.VendingMachine;
+
+import V2.Entities.Money;
+import V2.Entities.Product;
+import V2.Services.VendingMachine;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 public class DispensingState implements VendingMachineState{
-    private VendingMachine machine;
+    private final VendingMachine machine;
+    private static final Logger logger = Logger.getLogger(DispensingState.class.getName());
 
     public DispensingState(VendingMachine machine) {
         this.machine = machine;
@@ -15,38 +18,38 @@ public class DispensingState implements VendingMachineState{
 
     @Override
     public void selectProduct(Product product) {
-        System.err.println("Invalid Action");
+        logger.warning("Invalid Action");
     }
 
     @Override
     public void deselectProduct(Product product) {
-        System.err.println("Invalid Action");
+        logger.warning("Invalid Action");
     }
 
     @Override
     public void gotoPayment() {
-        System.err.println("Invalid Action");
+        logger.warning("Invalid Action");
     }
 
     @Override
     public void addMoney(Money money) {
-        System.err.println("Invalid Action");
+        logger.warning("Invalid Action");
     }
 
     @Override
     public void makePayment() {
-        System.err.println("Invalid Action");
+        logger.warning("Invalid Action");
     }
 
     @Override
     public void dispenseProducts() {
         List<Product> products = machine.getSelectedProducts();
         products.forEach(p->machine.updateQuantity(p,1));
-        System.out.println("Products dispensed");
-        System.out.println(products);
+        logger.info("Products dispensed");
+        logger.info(products.toString());
         machine.getSelectedProducts().clear();
         machine.setAddedAmount(0);
-        System.out.println("******** Process Finished - going to idle state **********");
+        logger.info("******** Process Finished - going to idle state **********");
         machine.setCurrentState(machine.getIdleState());
     }
 }

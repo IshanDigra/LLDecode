@@ -1,6 +1,7 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities.Notification;
+package V2.Entities.Notification;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Product;
+
+import V2.Entities.Product;
 
 public interface Observable {
     void add(Observer observer);

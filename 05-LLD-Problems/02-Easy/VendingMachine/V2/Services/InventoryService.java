@@ -1,16 +1,20 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities;
+package V2.Services;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Notification.Observable;
-import AsishPratapProblems.EASY.VendingMachine.V2.Entities.Notification.Observer;
+
+import V2.Entities.Notification.Observable;
+import V2.Entities.Notification.Observer;
+import V2.Entities.Product;
 
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.logging.Logger;
 
 public class InventoryService implements Observable {
     private final Map<Product, Integer> products;
     private final List<Observer> observerList ;
+    private static final Logger logger = Logger.getLogger(InventoryService.class.getName());
     public InventoryService() {
         products = new ConcurrentHashMap<>();
         observerList = new CopyOnWriteArrayList<>();
@@ -23,7 +27,7 @@ public class InventoryService implements Observable {
         products.put(prod, quant+ products.getOrDefault(prod, 0));
     }
 
-    public boolean isAvailable(Product prod, int quant){
+    public synchronized boolean isAvailable(Product prod, int quant){
         return products.getOrDefault(prod, 0)>= quant;
     }
 
@@ -33,7 +37,7 @@ public class InventoryService implements Observable {
         }
 
         if(!isAvailable(prod,quant)){
-            System.out.println("Product is out of stock");
+            logger.info("Product is out of stock");
             return;
         }
 

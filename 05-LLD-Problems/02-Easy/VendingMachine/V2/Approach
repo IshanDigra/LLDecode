@@ -14,15 +14,22 @@ Things to work on: machine.add money delegates to state object which again calls
 work arounf this stuff.
 
 Entities:
-1) VendingMachine: selectedProd, addedAmount, currentState, InventoryService, Various states
+
 2) Money: type, Amount
-3) InventoryService: Map<Product, integer> products, List<Observers>
+
 4) Admin: id, name
 5) Product: id, name, type, price
 
 Enums:
 1) Money Type: cash, Coin
 2) Product Type: buiscuit, schips, bar, drink
+
+Util:
+- id generator for items
+
+services:
+- VendingMachine: selectedProd, addedAmount, currentState, InventoryService, Various states
+- InventoryService: Map<Product, integer> products, List<Observers>
 
 Core Functionalities:
 1) select a product,
@@ -43,3 +50,5 @@ Critical Sections:
 4) dispensing the product.
 
 Exceptions: Out of stock, Insufficient Funds
+
+Questions to ask:

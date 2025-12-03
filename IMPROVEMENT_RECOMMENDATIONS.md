@@ -31,7 +31,7 @@ This document provides comprehensive recommendations for improving the LLD Compi
 ```bash
 # Standardize all README files to uppercase
 find . -name "readMe" -exec rename 's/readMe/README.md/' {} \;
-find . -name "ReadMe" -exec rename 's/ReadMe/README.md/' {} \;
+find . -name "ReadMe" -exec rename 's/Approach/README.md/' {} \;
 ```
 
 **Target Structure:**

@@ -1,6 +1,8 @@
-package AsishPratapProblems.EASY.VendingMachine.V2.Entities;
+package V2.Entities;
 
-import AsishPratapProblems.EASY.VendingMachine.V2.Enums.ProductType;
+
+import V2.Enums.ProductType;
+import V2.Util.IdGenerator;
 
 public class Product {
     private final String id;
@@ -8,8 +10,8 @@ public class Product {
     private final ProductType type;
     private double price;
 
-    public Product(String id, String name, ProductType type, double price) {
-        this.id = id;
+    public Product(String name, ProductType type, double price) {
+        this.id = IdGenerator.generateId();
         this.name = name;
         this.type = type;
         this.price = price;
