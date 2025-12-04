@@ -23,3 +23,10 @@ core functionalities: displayMenu, select coffee, make Payment, dispense coffee,
 => recipe: map<Ingredient, quantity>
 
 => Inventory: Map<Ingredient, quantity>
+
+Util:
+- Ingredient Id generator
+
+
+
+#since this problem is very similar to vending machine hence skipping it for now.

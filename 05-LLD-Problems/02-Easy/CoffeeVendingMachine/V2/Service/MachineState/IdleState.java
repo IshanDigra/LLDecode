@@ -1,13 +1,14 @@
-package AsishPratapProblems.EASY.CoffeeVendingMachine.Entity.MachineState;
+package V2.Service.MachineState;
 
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Entity.Cash;
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Entity.Coffee;
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Entity.CoffeeMachine;
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Enum.CoffeeType;
+import V2.Entity.*;
+import V2.Enum.*;
+import V2.Service.CoffeeMachine;
+import java.util.*;
+import java.util.logging.Logger;
 
 public class IdleState implements MachineState{
     private CoffeeMachine machine;
-
+    private static final Logger logger = Logger.getLogger(IdleState.class.getName());
     public IdleState(CoffeeMachine machine) {
         this.machine = machine;
     }

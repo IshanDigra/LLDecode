@@ -1,6 +1,7 @@
-package AsishPratapProblems.EASY.CoffeeVendingMachine.Entity;
+package V2.Entity;
 
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Enum.CashType;
+import V2.Enum.*;
+import java.util.*;
 
 public class Cash {
     private final CashType type;

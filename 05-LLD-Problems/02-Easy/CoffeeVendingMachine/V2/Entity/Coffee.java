@@ -1,6 +1,8 @@
-package AsishPratapProblems.EASY.CoffeeVendingMachine.Entity;
+package V2.Entity;
 
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Enum.CoffeeType;
+
+import V2.Enum.*;
+import java.util.*;
 
 public class Coffee {
     private String description;

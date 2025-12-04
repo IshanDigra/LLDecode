@@ -1,13 +1,14 @@
-package AsishPratapProblems.EASY.CoffeeVendingMachine.Entity;
+package V2.Service.Notification;
 
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Enum.Ingredient;
+import V2.Entity.*;
+import V2.Enum.*;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
-public class Inventory implements Observable{
+public class Inventory  implements Observable{
+    private static final Logger logger = Logger.getLogger(Inventory.class.getName());
     private Map<Ingredient, Integer> ingredients ;
     private List<Observer> observers;
 
@@ -48,11 +49,6 @@ public class Inventory implements Observable{
         }
     }
 
-    public void setIngredients(Map<Ingredient, Integer> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-
     @Override
     public void add(Observer observer) {
         observers.add(observer);
@@ -69,4 +65,11 @@ public class Inventory implements Observable{
             observer.update(ingredient);
         }
     }
+
+    public void setIngredients(Map<Ingredient, Integer> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+
+
 }

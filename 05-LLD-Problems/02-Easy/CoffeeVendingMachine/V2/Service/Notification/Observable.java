@@ -1,6 +1,8 @@
-package AsishPratapProblems.EASY.CoffeeVendingMachine.Entity;
+package V2.Service.Notification;
 
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Enum.Ingredient;
+
+import V2.Enum.*;
+
 
 public interface Observable {
     public void add(Observer observer);

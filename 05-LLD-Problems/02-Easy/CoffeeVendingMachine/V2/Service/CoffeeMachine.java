@@ -1,16 +1,19 @@
-package AsishPratapProblems.EASY.CoffeeVendingMachine.Entity;
+package V2.Service;
 
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Entity.MachineState.DispenseState;
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Entity.MachineState.IdleState;
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Entity.MachineState.MachineState;
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Entity.MachineState.TransactionState;
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Enum.CoffeeType;
-import AsishPratapProblems.EASY.CoffeeVendingMachine.Enum.Ingredient;
+import V2.Entity.*;
+import V2.Enum.*;
+import V2.Service.MachineState.DispenseState;
+import V2.Service.MachineState.IdleState;
+import V2.Service.MachineState.MachineState;
+import V2.Service.MachineState.TransactionState;
+import V2.Service.Notification.Inventory;
 
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 
 public class CoffeeMachine implements MachineState {
+    private static final Logger logger = Logger.getLogger(CoffeeMachine.class.getName());
     private static CoffeeMachine machine;
     private Inventory inventory;
     private MachineState idleState;
@@ -51,7 +54,7 @@ public class CoffeeMachine implements MachineState {
         inventory.restockIngredients(ingredient, quantity);
     }
     public void displayMenu(){
-        coffees.entrySet().stream().forEach(r-> System.out.println(r.getKey() + ": "+r.getValue().getPrice()));
+        coffees.entrySet().forEach(r-> System.out.println(r.getKey() + ": "+r.getValue().getPrice()));
     }
     public static synchronized CoffeeMachine getInstance(){
         if(machine == null){
