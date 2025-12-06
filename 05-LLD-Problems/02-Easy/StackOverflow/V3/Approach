@@ -1,0 +1,62 @@
+#Requirements
+Users can post questions, answer questions, and comment on questions and answers.
+Users can vote on questions and answers.
+Questions should have tags associated with them.
+Users can search for questions based on keywords, tags, or user profiles.
+The system should assign reputation score to users based on their activity and the quality of their contributions.
+The system should handle concurrent access and ensure data consistency.
+
+------- Bonus ---------------
+- User Signup// Skipping this for now as we already have alot of good things to work on here. we will try this out
+on a different problem.
+
+Happy Flow: some user posts a question, other user answers it, votes it comments on it
+
+Entities:
+1) User: id, name, reputation
+2) Question, id, tags: ListString, title, body, posted by, timestamp, List<Answers>, List<Comments>, Upvotes, DownVotes,
+3) Answer, id, body, question, posted by, timestamp, list<comments>, votes,
+4) Comment: id, posted by, timestamp, content, votes,
+
+-- constants file: storing upvote downvote for reputation score update.
+
+6) Main entry Point: List<User>, List<Questions>, List<Answers>,
+post question, post answer, post comment, upvote, downvote, search
+
+Enums:
+
+Util:
+    - Id generators
+    - reputation update
+
+
+Core Functionalities:
+1) post question
+2) asnwer question
+3) make comment
+4) vote
+5) search questions based on keywords, tags, user profile
+6) assigning reputations based on activity and contributions
+7) On each question asked +10, each answer+10, each upvote +2, downvote -2, comment +5
+8) upvote/downvote on a given item can be done once per user. a user can either upvote/ downvote and that too with a single contribution. need to work on this as well.
+
+Services:
+    - Stackoverflow service
+    - We could make a search service: Because for future enhancements we could have multiple types of searching
+    profile searches, answers, tags, questions etc etc.
+
+
+Critical Section:
+voting, commenting, updating reputation, adding questions , answers,
+
+
+Questions to ask:
+    - Can there be a comment on a comment. this will lead to nested hierarchy
+    - More questions on the criteria for reputation score.positive/negative scores.
+    - Mentioned about user profile, what consists of a user profile -- valid question to ask.
+
+
+
+#future improvements
+- There is code duplication for upvotes, downvotes and commetns for questions and answers that could
+be delegated to parent class or something.
