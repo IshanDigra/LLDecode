@@ -1,4 +1,4 @@
-package Problems.MEDIUM.Cache_LRU;
+package LRUCache;
 
 public class LRU_Demo {
     public static void main(String[] args) {
