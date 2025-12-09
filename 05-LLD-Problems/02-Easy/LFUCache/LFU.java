@@ -50,7 +50,7 @@ public class LFU<K,V>{
         DLL<K,V> dll = freqMap.get(node.getFreq());
         dll.removeNode(node);
         freqMap.put(node.getFreq(), dll);
-        if(dll.getSize()==0){
+        if(dll.getSize()==0 && (node.getFreq() == minFrequency.get())){
             minFrequency.incrementAndGet();
         }
         currSize.decrementAndGet();
