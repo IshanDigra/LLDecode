@@ -1,4 +1,5 @@
-# LFU Cache
+# LFU Cache -- current implematation is flawed. need to resolve it from scratch. first implement simple solution check on leetcode. 
+then convert to end to end solution with syncronization atomicity and everything. 
 
 ## Problem Statement
 

@@ -8,7 +8,6 @@ public class LFU<K,V>{
     private final Map<K, Node<K,V>> nodeMap;
     private final Map<Long, DLL<K,V>> freqMap;
     private final long capacity;
-    private final AtomicLong currSize;
     private final AtomicLong minFrequency;
 
     public LFU(long capacity) {
@@ -16,14 +15,13 @@ public class LFU<K,V>{
         nodeMap = new ConcurrentHashMap<>();
         freqMap = new ConcurrentHashMap<>();
         minFrequency = new AtomicLong(0);
-        currSize = new AtomicLong(0);
     }
 
     /*
     * */
     public void add(Node<K,V> node, long freq){
         // could add a check fpr curr size <= capacity
-        if(currSize.get() >= capacity){
+        if(nodeMap.size() >= capacity){
             System.out.println("Error: LFU Size Limit exceeding");
             return ;
         }
@@ -32,14 +30,11 @@ public class LFU<K,V>{
         DLL<K, V> dll = freqMap.getOrDefault(freq, new DLL<>());
         dll.addNode(node);
         freqMap.put(freq, dll);
-        currSize.incrementAndGet();
-        if(minFrequency.get() > freq) {
-            minFrequency.set(freq);
-        }
+        node.setFreq(freq);
     }
 
     public void remove(Node<K,V>node) {
-        if(currSize.get()==0){
+        if(nodeMap.size()==0){
             System.out.println("Error: LFU is empty, cant remove element");
             return ;
         }
@@ -50,10 +45,6 @@ public class LFU<K,V>{
         DLL<K,V> dll = freqMap.get(node.getFreq());
         dll.removeNode(node);
         freqMap.put(node.getFreq(), dll);
-        if(dll.getSize()==0 && (node.getFreq() == minFrequency.get())){
-            minFrequency.incrementAndGet();
-        }
-        currSize.decrementAndGet();
     }
 
     public synchronized  V get(K key){
@@ -64,6 +55,9 @@ public class LFU<K,V>{
         Node<K,V> node = nodeMap.get(key);
 
         remove(node);
+        if((node.getFreq()== minFrequency.get())&&(freqMap.get(minFrequency.get()).getSize()==0)){
+            minFrequency.incrementAndGet();
+        }
         node.setFreq(node.getFreq()+1);
         add(node, node.getFreq());
         return node.getValue();
@@ -78,7 +72,7 @@ public class LFU<K,V>{
             return ;
         }
 
-        if(currSize.get() >= capacity){
+        if(nodeMap.size() >= capacity){
             // remove the LFU
             remove(freqMap.get(minFrequency.get()).getFirstNode());
         }
