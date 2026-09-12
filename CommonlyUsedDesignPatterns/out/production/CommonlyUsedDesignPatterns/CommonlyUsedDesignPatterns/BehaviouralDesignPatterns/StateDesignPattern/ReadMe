@@ -1,0 +1,10 @@
+Go through this
+https://www.digitalocean.com/community/tutorials/state-design-pattern-java
+
+so lets take an example of eating food. eatFood() is function. Now when your state is happy you are going to eat
+some tasty food. when you state is normal you are going to eat normal home cooked food. when your state is sick
+you are going to eat khickdi food. so the actionable eatFood() is same but based on your state the output and action changes.
+
+One way to deal with this is based on the mood we make other functions. Or another way is to make a class whose
+has a state object whose state can be changed and based on the state the object itself decides what function to call.
+This object will basically be the state of me. happy sad etc.
