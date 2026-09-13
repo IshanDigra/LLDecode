@@ -1,0 +1,8 @@
+Lets say we have a class Car which has a drive strategy = simple. Now we make numerous child classes from the parent class.
+Now comes a set of child classes that need sports Drive strategy likewise comes a set of child classes that requires sedan drive strategy.
+Now In this case we have hit a roadblock. each child class would have to build their own drive strategy that would lead to code
+duplication. Another example would be that you are making an app like google maps that tells the best route now you could take walking route
+by road route, water route or some other route. this is a strategy to choose from. hence we use strategy design patterns for this.
+
+Solution: Like the name suggests strategy pattern is Define a family of algorithms, encapsulate each one, and make them interchangeable.
+The strategy pattern lets the algorithm vary independently from client to client.

@@ -1,0 +1,6 @@
+package CommonlyUsedDesignPatterns.StructuralDesignPatterns.DecoratorDesignPattern.Decorator;
+
+import CommonlyUsedDesignPatterns.StructuralDesignPatterns.DecoratorDesignPattern.Pizza.BasePizza;
+
+public interface ToppingsDecorator extends BasePizza {
+}
