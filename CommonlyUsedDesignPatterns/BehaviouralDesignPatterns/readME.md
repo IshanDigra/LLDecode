@@ -25,7 +25,7 @@ Behavioral patterns organize object interactions, define clear communication pat
 ## Common Behavioral Patterns
 
 | Pattern                  | What it Does                                                                           | Analogy                                                   | Use Case                                                   |
-|--------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------------| 
+|--------------------------|----------------------------------------------------------------------------------------|-----------------------------------------------------------|------------------------------------------------------------|
 | **Observer**             | Defines a one-to-many dependency where all observers are notified of state changes.     | Subscribers receiving notifications when a magazine publishes a new issue. | Event handling systems, real-time data feeds, MVC architectures. |
 | **Strategy**             | Encapsulates algorithms so they can be selected and changed at runtime.                 | Choosing different routes to reach a destination based on traffic conditions. | Payment processing with multiple payment methods, sorting algorithms. |
 | **Command**              | Encapsulates a request as an object, allowing for parameterization and queueing.        | A restaurant order ticket that contains all the information needed by the kitchen. | Undo/redo functionality, job queuing systems, wizards. |
@@ -41,19 +41,19 @@ Behavioral patterns organize object interactions, define clear communication pat
 
 ## When to Use Behavioral Patterns
 
-- **Reduce Coupling**  
+- **Reduce Coupling**
   When you need objects to communicate without knowing too much about each other.
 
-- **Increase Flexibility**  
+- **Increase Flexibility**
   When you want the ability to change how objects interact at runtime.
 
-- **Organize Complex Flows**  
+- **Organize Complex Flows**
   When object interactions follow complex rules or sequences that should be centralized.
 
-- **Enable Extension**  
+- **Enable Extension**
   When you need to add new behaviors without changing existing code.
 
-- **Manage State Transitions**  
+- **Manage State Transitions**
   When object behavior needs to change based on internal state.
 
 ---

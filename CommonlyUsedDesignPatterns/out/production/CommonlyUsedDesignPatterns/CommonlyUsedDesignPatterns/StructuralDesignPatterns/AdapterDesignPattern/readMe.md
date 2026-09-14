@@ -88,4 +88,3 @@ Here is a professional comparison between the two patterns:
 | **Example**            | Power plug adapter, SD card to USB adapter                                                     | GUI toolkit with multiple platforms and rendering APIs              |
 
 > **Summary:** Adapter focuses on compatibility and integration, while Bridge is about extensibility and flexibility in system design.
-

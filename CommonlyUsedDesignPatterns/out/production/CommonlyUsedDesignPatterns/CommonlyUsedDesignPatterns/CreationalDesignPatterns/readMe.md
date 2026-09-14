@@ -36,16 +36,16 @@ Creational patterns centralize and abstract the instantiation process, making yo
 
 ## When to Use Creational Patterns
 
-- **Encapsulate Knowledge**  
+- **Encapsulate Knowledge**
   Hide the details of how objects are created, composed, and represented.
 
-- **Increase Flexibility**  
+- **Increase Flexibility**
   Change the objects being created, how they're created, and even the type created without altering client code.
 
-- **Reduce Complexity**  
+- **Reduce Complexity**
   Simplify object creation code, especially for objects with many configuration options.
 
-- **Promote Consistency**  
+- **Promote Consistency**
   Ensure objects are created in a standardized way throughout your application.
 
 ---

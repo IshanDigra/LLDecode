@@ -2,12 +2,12 @@
 
 ------------------------------------------------------------
 
-**Definition:**  
+**Definition:**
 A structural pattern that provides a surrogate or placeholder for another object to control access, add security, cache results, or manage resources.
 
 ------------------------------------------------------------
 
-**Concept:**  
+**Concept:**
 The Proxy acts as a middleman between the client and the real object. The client interacts with the proxy, which controls or enhances access to the real object.
 
 ------------------------------------------------------------

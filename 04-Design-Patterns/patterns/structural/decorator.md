@@ -12,7 +12,7 @@ Think of a pizza shop. You start with a basic pizza (Margherita or Farmhouse) an
 **Structure:**
 | Participant        | Role                                                        |
 |--------------------|-------------------------------------------------------------|
-| Component          | Defines the interface for objects that can have responsibilities added | 
+| Component          | Defines the interface for objects that can have responsibilities added |
 | ConcreteComponent  | The basic object to which additional responsibilities can be attached |
 | Decorator          | Maintains a reference to a Component and defines an interface that conforms to Component's interface |
 | ConcreteDecorator  | Adds responsibilities to the component |

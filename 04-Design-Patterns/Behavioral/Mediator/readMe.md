@@ -19,29 +19,29 @@ The Mediator pattern defines an object that controls how a group of objects inte
 
 ## Benefits
 
-- **Simpler Communication**  
+- **Simpler Communication**
   Turns many-to-many interactions into one-to-many through the mediator.
 
-- **Loose Coupling**  
+- **Loose Coupling**
   Colleagues depend only on the mediator, not on each other’s details.
 
-- **Central Control**  
+- **Central Control**
   Changing how objects interact happens in one place.
 
-- **Easier Maintenance**  
+- **Easier Maintenance**
   You can add, remove, or modify colleagues without touching their peers.
 
 ---
 
 ## Real-World Examples
 
-- **Air Traffic Control**  
+- **Air Traffic Control**
   Planes report to the control tower, which coordinates takeoffs and landings.
 
-- **Chat Room**  
+- **Chat Room**
   Users send messages to a server that distributes them to everyone in the room.
 
-- **GUI Dialog Manager**  
+- **GUI Dialog Manager**
   Window components talk to a dialog controller, which updates other components.
 
 ---

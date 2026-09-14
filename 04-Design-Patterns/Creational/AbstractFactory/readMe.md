@@ -2,17 +2,17 @@
 
 ------------------------------------------------------------
 
-**Definition:**  
+**Definition:**
 Provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
 ------------------------------------------------------------
 
-**Concept:**  
+**Concept:**
 The Abstract Factory pattern lets you produce families of related objects without exposing their concrete classes. It is useful when your code needs to work with various families of products, but you want to avoid hard-coding their classes. This promotes consistency among products and makes the codebase flexible and easy to extend.
 
 ---
 
-*Analogy:*  
+*Analogy:*
 Imagine a furniture store that can supply entire sets of furniture (e.g., Victorian or Modern). You order a set, and the store provides you with a matching chair, sofa, and coffee table—all in the same style. You don’t need to know how each piece is made or how the styles are coordinated; the store (factory) handles it all.
 
 > **Note:** The Abstract Factory pattern keeps your code independent from the concrete classes of products. It allows you to switch entire product families easily and ensures that products from the same family are compatible. This pattern is also called the "factory of factories" pattern.

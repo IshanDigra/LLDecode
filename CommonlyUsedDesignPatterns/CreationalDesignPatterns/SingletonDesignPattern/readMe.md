@@ -2,15 +2,15 @@
 
 ------------------------------------------------------------
 
-**Definition:**  
+**Definition:**
 Ensures a class has only one instance and provides a global point of access to it.
 
 ------------------------------------------------------------
 
-**Concept:**  
+**Concept:**
 The Singleton pattern restricts the instantiation of a class to a single object. This is useful when exactly one object is needed to coordinate actions across the system, such as a configuration manager or a logger. It solves the problem of accidental multiple instances and ensures consistent access to shared resources.
 
-*Analogy:*  
+*Analogy:*
 A country can have only one president at a time. All official decisions and communications go through this single president.
 
 ------------------------------------------------------------

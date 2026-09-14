@@ -2,17 +2,17 @@
 
 ------------------------------------------------------------
 
-**Definition:**  
+**Definition:**
 Separates the construction of a complex object from its representation, allowing the same construction process to create different representations.
 
 ------------------------------------------------------------
 
-**Concept:**  
+**Concept:**
 The Builder pattern constructs complex objects step by step. It enables the creation of different representations of an object using the same construction process, isolating the construction logic from the object itself. This is useful when an object requires numerous configuration options or assembly steps.
 
 ---
 
-**Analogy:**  
+**Analogy:**
 Think of building a meal at a restaurant. You (the Director) instruct the chef (the Builder) step by step—choose a drink, main course, dessert, etc. The chef follows your instructions to assemble the meal, but you can ask for different combinations each time.
 
 > **Note:** The Builder pattern is ideal when object creation is complex or involves many optional parts. It keeps construction code separate from the product.
@@ -68,7 +68,7 @@ interface MealBuilder {
 
 // Concrete Builder - implements the construction steps
 class VegMealBuilder implements MealBuilder {
-    private Meal meal; 
+    private Meal meal;
     // constructor to initialize meal with some default vegan meal
     public VegMealBuilder() {
         meal = new Meal();

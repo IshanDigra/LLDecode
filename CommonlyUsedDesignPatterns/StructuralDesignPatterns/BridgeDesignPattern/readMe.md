@@ -110,7 +110,7 @@ person.move(); // Output: Walking
 | **Example**    | `Animal` delegates movement to `MoveLogic` (`Walk`, `Fly`) | `Duck` switches between different `FlyBehavior`s   |
 | **Key Focus**  | Flexibility in abstraction and implementation hierarchies  | Flexibility in choosing an algorithm               |
 
-> **Note:**  
+> **Note:**
 > The code structure can look similar, but the design intent is different. Bridge is about separating what you do from how you do it; Strategy is about choosing how you do something from a set of options.
 
 ------------------------------------------------------------

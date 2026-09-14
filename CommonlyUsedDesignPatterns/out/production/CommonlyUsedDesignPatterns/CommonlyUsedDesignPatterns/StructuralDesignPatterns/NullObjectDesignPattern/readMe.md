@@ -2,12 +2,12 @@
 
 ------------------------------------------------------------
 
-**Definition:**  
+**Definition:**
 A behavioral pattern that uses a special object (the "null object") to represent the absence of a real object, avoiding null checks and providing default, do-nothing behavior.
 
 ------------------------------------------------------------
 
-**Concept:**  
+**Concept:**
 Instead of returning `null` when an object is missing, return a "null object" that implements the same interface but does nothing (or returns a default value). This keeps client code clean and safe from null pointer errors.
 
 ------------------------------------------------------------

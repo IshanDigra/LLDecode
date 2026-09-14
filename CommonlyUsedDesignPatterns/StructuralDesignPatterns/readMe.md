@@ -38,16 +38,16 @@ Structural patterns provide clear, reusable ways to link components. This reduce
 
 ## When to Use Structural Patterns
 
-- **Reduce Complexity**  
+- **Reduce Complexity**
   Hide detailed relationships behind a simple interface.
 
-- **Promote Reuse**  
+- **Promote Reuse**
   Combine existing components in new ways without duplication.
 
-- **Maintain Flexibility**  
+- **Maintain Flexibility**
   Change or replace parts of the structure without rewriting everything else.
 
-- **Improve Performance**  
+- **Improve Performance**
   Share resources and delay heavy operations until needed.
 
 ---
